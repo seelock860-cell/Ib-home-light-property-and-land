@@ -1,0 +1,6 @@
+{
+  "name": "IB Home Light Property And Land",
+  "description": "Luxury real estate, residential houses, land, commercial properties, and fuel station property opportunities in Port Harcourt, Rivers State, Nigeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
