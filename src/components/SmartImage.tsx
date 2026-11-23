@@ -6,9 +6,16 @@ interface SmartImageProps {
   alt: string;
   className?: string;
   fallbackTitle?: string;
+  priority?: boolean;
 }
 
-export function SmartImage({ src, alt, className = '', fallbackTitle }: SmartImageProps) {
+export function SmartImage({
+  src,
+  alt,
+  className = '',
+  fallbackTitle,
+  priority = false,
+}: SmartImageProps) {
   const [failed, setFailed] = useState(false);
 
   if (!src || failed) {
@@ -30,7 +37,9 @@ export function SmartImage({ src, alt, className = '', fallbackTitle }: SmartIma
     <img
       src={src}
       alt={alt}
-      loading="lazy"
+      loading={priority ? 'eager' : 'lazy'}
+      decoding={priority ? 'sync' : 'async'}
+      fetchPriority={priority ? 'high' : 'auto'}
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}
       className={className}

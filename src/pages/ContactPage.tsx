@@ -21,6 +21,17 @@ export function ContactPage() {
       <SeoHead
         title={`Contact Us | ${settings.company_name}`}
         description={`Contact ${settings.company_name} in Port Harcourt. Call ${settings.phone}, message on WhatsApp, or visit ${settings.office_address}`}
+        keywords="Contact Ib home light property and land, Port Harcourt real estate office, Igwuruta property agent phone, Schedule site inspection Rivers State"
+        canonicalPath="/contact"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          name: `Contact ${settings.company_name}`,
+          url: 'https://ibhomelightpropertyandland.com/contact',
+          mainEntity: {
+            '@id': 'https://ibhomelightpropertyandland.com/#organization',
+          },
+        }}
       />
 
       <section className="bg-[#101C32] text-white py-16 sm:py-20">

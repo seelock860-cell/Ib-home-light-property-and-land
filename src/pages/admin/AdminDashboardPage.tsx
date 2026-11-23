@@ -231,6 +231,8 @@ export function AdminDashboardPage() {
       <SeoHead
         title={`Admin Dashboard | ${settings.company_name}`}
         description="Administrator management console for IB Home Light Property And Land."
+        canonicalPath="/admin"
+        noIndex
       />
 
       <div className="min-h-screen bg-[#F8F7F3] flex">

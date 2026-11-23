@@ -22,6 +22,7 @@ import { useSite } from '../context/SiteContext';
 import { Property } from '../types';
 import {
   DEFAULT_FEE_VISIBILITY,
+  SITE_URL,
   buildPropertyWhatsAppUrl,
   calculatePropertyTotals,
   formatNaira,
@@ -77,6 +78,11 @@ export function PropertyDetailsPage() {
   if (!property) {
     return (
       <section className="py-24 bg-[#F8F7F3] text-center px-4">
+        <SeoHead
+          title={`Property Not Found | ${settings.company_name}`}
+          description="The requested property listing is currently unavailable."
+          noIndex
+        />
         <h1 className="font-display text-3xl font-bold text-[#101C32] mb-3">
           Property Not Found
         </h1>
@@ -161,14 +167,68 @@ export function PropertyDetailsPage() {
     (property.bathrooms !== null && property.bathrooms !== undefined) ||
     Boolean(property.property_size?.trim());
 
+  const primaryImage =
+    images.find((img) => img.is_primary)?.image_url || images[0]?.image_url;
+  const propertyDesc =
+    property.short_description ||
+    `${property.title} in ${property.location} (${listingType}). Listed by ${settings.company_name}.`;
+
   return (
     <>
       <SeoHead
-        title={`${property.title} | ${settings.company_name}`}
-        description={
-          property.short_description ||
-          `${property.title} in ${property.location}. Listed by ${settings.company_name}.`
-        }
+        title={`${property.title} — ${property.location} | ${settings.company_name}`}
+        description={propertyDesc}
+        keywords={`${property.title}, ${property.category_name} in ${property.location}, ${listingType} Port Harcourt, ${settings.company_name}`}
+        canonicalPath={`/properties/${property.slug}`}
+        ogType="article"
+        ogImage={primaryImage}
+        structuredData={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'RealEstateListing',
+            name: property.title,
+            description: propertyDesc,
+            url: `${SITE_URL}/properties/${property.slug}`,
+            datePosted: property.created_at,
+            ...(primaryImage ? { image: [primaryImage] } : {}),
+            offers: {
+              '@type': 'Offer',
+              price: Number(property.price) || 0,
+              priceCurrency: 'NGN',
+              availability:
+                property.availability === 'available'
+                  ? 'https://schema.org/InStock'
+                  : 'https://schema.org/SoldOut',
+              seller: {
+                '@id': `${SITE_URL}/#organization`,
+              },
+            },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: `${SITE_URL}/`,
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Properties',
+                item: `${SITE_URL}/properties`,
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: property.title,
+                item: `${SITE_URL}/properties/${property.slug}`,
+              },
+            ],
+          },
+        ]}
       />
 
       <section className="bg-[#101C32] text-white py-8">

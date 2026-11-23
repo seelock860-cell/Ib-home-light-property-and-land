@@ -14,7 +14,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { useSite } from '../context/SiteContext';
-import { BRAND_IMAGES, buildWhatsAppUrl } from '../lib/constants';
+import { BRAND_IMAGES, SITE_URL, buildWhatsAppUrl } from '../lib/constants';
 import { PropertyCard } from '../components/PropertyCard';
 import { SmartImage } from '../components/SmartImage';
 import { SeoHead } from '../components/SeoHead';
@@ -35,7 +35,19 @@ export function HomePage() {
     <>
       <SeoHead
         title={`${settings.company_name} | Real Estate in Port Harcourt`}
-        description="Discover houses for sale, verified land, commercial properties, and fuel station opportunities in Port Harcourt, Rivers State with IB Home Light Property And Land."
+        description="Explore verified houses for sale, dry land, commercial properties, and fuel station investments in Port Harcourt, Rivers State with Ib home light property and land."
+        keywords="Real estate in Port Harcourt, Houses for sale in Port Harcourt, Land for sale in Port Harcourt, Igwuruta land for sale, Fuel station properties Nigeria, Ib home light property and land"
+        canonicalPath="/"
+        ogImage={BRAND_IMAGES.heroVilla}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: settings.company_name,
+          url: `${SITE_URL}/`,
+          publisher: {
+            '@id': `${SITE_URL}/#organization`,
+          },
+        }}
       />
 
       {/* 1. HERO SECTION */}
@@ -45,6 +57,7 @@ export function HomePage() {
             src={BRAND_IMAGES.heroVilla}
             alt="Luxury modern residential villa in Port Harcourt, Rivers State"
             fallbackTitle="IB Home Light Property And Land"
+            priority
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#101C32]/92 via-[#101C32]/75 to-[#101C32]/40" />

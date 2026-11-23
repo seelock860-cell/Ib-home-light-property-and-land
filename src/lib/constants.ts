@@ -1,5 +1,7 @@
 import { FeeVisibility, ListingType, Property, WebsiteSettings } from '../types';
 
+export const SITE_URL = 'https://ibhomelightpropertyandland.com';
+
 export const BRAND_IMAGES = {
   heroVilla: '/src/assets/images/hero_luxury_villa_1795174334662.jpg',
   serviceHouses: '/src/assets/images/service_houses_1795174335043.jpg',
@@ -8,6 +10,8 @@ export const BRAND_IMAGES = {
   serviceFuelStation: '/src/assets/images/service_fuel_station_1795174336553.jpg',
   aboutArchitecture: '/src/assets/images/about_architecture_1795174334676.jpg',
 };
+
+export const DEFAULT_OG_IMAGE = `${SITE_URL}${BRAND_IMAGES.heroVilla}`;
 
 export const DEFAULT_SETTINGS: WebsiteSettings = {
   company_name: 'Ib home light property and land',

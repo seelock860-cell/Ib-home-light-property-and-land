@@ -48,8 +48,20 @@ export function ServicesPage() {
   return (
     <>
       <SeoHead
-        title={`Our Services | ${settings.company_name}`}
-        description="House sales, land sales, and fuel station property opportunities in Port Harcourt."
+        title={`Real Estate Services in Port Harcourt | ${settings.company_name}`}
+        description="Trusted house sales, verified land acquisition, and fuel station property brokerage in Port Harcourt and Rivers State with Ib home light property and land."
+        keywords="Port Harcourt real estate services, House sales Port Harcourt, Verified land brokerage Igwuruta, Fuel station brokerage Nigeria"
+        canonicalPath="/services"
+        ogImage={BRAND_IMAGES.serviceHouses}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: 'Real Estate Brokerage & Land Verification',
+          provider: {
+            '@id': 'https://ibhomelightpropertyandland.com/#organization',
+          },
+          areaServed: 'Port Harcourt, Rivers State, Nigeria',
+        }}
       />
 
       <section className="bg-[#101C32] text-white py-16 sm:py-20">

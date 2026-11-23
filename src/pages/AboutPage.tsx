@@ -40,7 +40,19 @@ export function AboutPage() {
     <>
       <SeoHead
         title={`About Us | ${settings.company_name}`}
-        description="Learn about IB Home Light Property And Land — our mission, vision, values, and real estate advisory services in Port Harcourt, Rivers State."
+        description="Learn about Ib home light property and land — our mission, verified title due diligence, and real estate advisory services in Port Harcourt, Rivers State."
+        keywords="About Ib home light property and land, Port Harcourt real estate agency, Igwuruta real estate advisor, Rivers State property verification"
+        canonicalPath="/about"
+        ogImage={BRAND_IMAGES.aboutArchitecture}
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'AboutPage',
+          name: `About ${settings.company_name}`,
+          url: 'https://ibhomelightpropertyandland.com/about',
+          about: {
+            '@id': 'https://ibhomelightpropertyandland.com/#organization',
+          },
+        }}
       />
 
       {/* Page Header */}

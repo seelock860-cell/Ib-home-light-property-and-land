@@ -85,6 +85,8 @@ export function AdminLoginPage() {
       <SeoHead
         title="Administrator Sign In | Ib home light property and land"
         description="Protected administrator portal for Ib home light property and land."
+        canonicalPath="/admin/login"
+        noIndex
       />
       <div className="min-h-screen bg-[#101C32] flex flex-col justify-center px-4 py-12">
         <div className="max-w-md w-full mx-auto">

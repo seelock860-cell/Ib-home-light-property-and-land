@@ -1,6 +1,11 @@
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /admin/login
+
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /admin/login
 
-Sitemap: /sitemap.xml
+Sitemap: https://ibhomelightpropertyandland.com/sitemap.xml

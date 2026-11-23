@@ -104,7 +104,15 @@ export function GalleryPage() {
     <>
       <SeoHead
         title={`Property Gallery | ${settings.company_name}`}
-        description="Browse curated real estate photography of residential homes, surveyed land, commercial plazas, and fuel station assets in Port Harcourt."
+        description="Browse curated real estate photography of residential homes, surveyed land, commercial plazas, and fuel station assets in Port Harcourt, Rivers State."
+        keywords="Port Harcourt property photos, Real estate gallery Igwuruta, Houses and land gallery Rivers State"
+        canonicalPath="/gallery"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'ImageGallery',
+          name: `Property Gallery — ${settings.company_name}`,
+          url: 'https://ibhomelightpropertyandland.com/gallery',
+        }}
       />
 
       <section className="bg-[#101C32] text-white py-16 sm:py-20">

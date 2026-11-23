@@ -61,8 +61,18 @@ export function PropertiesPage() {
   return (
     <>
       <SeoHead
-        title={`Properties for Sale in Port Harcourt | ${settings.company_name}`}
-        description="Search verified houses for sale, lands for sale, commercial properties, and fuel station opportunities in Port Harcourt, Rivers State."
+        title={`Properties for Sale & Rent in Port Harcourt | ${settings.company_name}`}
+        description="Browse verified houses, duplexes, self-contained flats, dry land, and fuel station properties for sale or rent in Port Harcourt, Rivers State."
+        keywords="Properties in Port Harcourt, Houses for sale Port Harcourt, Land for sale Igwuruta, Duplexes for sale Rivers State, Self-contained apartments Port Harcourt"
+        canonicalPath="/properties"
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          name: `Property Listings — ${settings.company_name}`,
+          url: 'https://ibhomelightpropertyandland.com/properties',
+          description:
+            'Verified houses, land, commercial assets, and fuel station opportunities in Port Harcourt, Rivers State.',
+        }}
       />
 
       <section className="bg-[#101C32] text-white pt-14 pb-16 sm:pt-18 sm:pb-20">
